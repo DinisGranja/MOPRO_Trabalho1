@@ -12,17 +12,17 @@ import my_company.utilitarios.Data;
  */
 public class Premio {
     private String nomePremio;
-    private Data dataAtribuicao;
+    private int dataAtribuicao;
 
     private static final String NOME_POR_OMISSAO = "";
-    private static final Data DATA_POR_OMISSAO = new Data();
+    private static final int DATA_POR_OMISSAO = 2000;
 
     public Premio() {
         nomePremio = NOME_POR_OMISSAO;
         dataAtribuicao = DATA_POR_OMISSAO;
     }
 
-    public Premio(String nomePremio, Data dataAtribuicao) {
+    public Premio(String nomePremio, int dataAtribuicao) {
         this.nomePremio = nomePremio;
         this.dataAtribuicao = dataAtribuicao;
     }
@@ -40,11 +40,11 @@ public class Premio {
         this.nomePremio = nomePremio;
     }
 
-    public Data getDataAtribuicao() {
+    public int getDataAtribuicao() {
         return dataAtribuicao;
     }
 
-    public void setDataAtribuicao(Data dataAtribuicao) {
+    public void setDataAtribuicao(int dataAtribuicao) {
         this.dataAtribuicao = dataAtribuicao;
     }
 

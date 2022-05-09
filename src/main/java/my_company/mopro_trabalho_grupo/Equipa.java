@@ -15,14 +15,14 @@ public class Equipa {
 
     private String escalao;
     private Modalidade modalidade;
-    private Data dataConstituicao;
+    private int dataConstituicao;
     private ArrayList<Jogador> jogadores = new ArrayList<Jogador>();
 
     public static final String ESCALAO_POR_OMISSAO = "";
     public static final Modalidade MODALIDADE_POR_OMISSAO = new Modalidade();
-    public static final Data DATA_CONST_POR_OMISSAO = new Data();
+    public static final int DATA_CONST_POR_OMISSAO = 2000;
 
-    public Equipa(String escalao, Modalidade modalidade, Data dataConstituicao) {
+    public Equipa(String escalao, Modalidade modalidade, int dataConstituicao) {
         this.escalao = escalao;
         this.modalidade = modalidade;
         this.dataConstituicao = dataConstituicao;
@@ -48,7 +48,7 @@ public class Equipa {
         return modalidade;
     }
 
-    public Data getDataConstituicao() {
+    public int getDataConstituicao() {
         return dataConstituicao;
     }
 
@@ -60,7 +60,7 @@ public class Equipa {
         this.modalidade = modalidade;
     }
 
-    public void setDataConstituicao(Data dataConstituicao) {
+    public void setDataConstituicao(int dataConstituicao) {
         this.dataConstituicao = dataConstituicao;
     }
 

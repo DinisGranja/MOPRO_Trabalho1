@@ -12,15 +12,16 @@ import my_company.utilitarios.Data;
  * @author dinis
  */
 public class Clube {
+
     private String denominacao;
     private String NIF;
     private String endereco;
     private Data dataConstituicao;
     private String numeroTel;
     private String email;
-    private ArrayList <Atleta> atletas = new ArrayList<Atleta>();
-    private ArrayList <Modalidade> modalidades = new ArrayList<Modalidade>();
-    private ArrayList <Equipa> equipas = new ArrayList<Equipa>();
+    private ArrayList<Atleta> atletas = new ArrayList<Atleta>();
+    private ArrayList<Modalidade> modalidades = new ArrayList<Modalidade>();
+    private ArrayList<Equipa> equipas = new ArrayList<Equipa>();
 
     private static final String DENOMINACAO_POR_OMISSAO = "";
     private static final String NIF_POR_OMISSAO = "";
@@ -99,34 +100,46 @@ public class Clube {
     public String getEmail() {
         return email;
     }
+    
+    public ArrayList<Modalidade> getModalidades() {
+        return modalidades;
+    }
+    
+    public ArrayList<Equipa> getEquipas() {
+        return equipas;
+    }
+    
+    public ArrayList<Atleta> getAtletas() {
+        return atletas;
+    }
 
     public String toString() {
         return ("Denominação: " + denominacao + "\nNIF: " + NIF + "\nEndreço: " + endereco + "\nData de constituição: " + dataConstituicao + "\nNúmero telefónico: " + numeroTel + "\nEmail: " + email);
     }
-    
+
     public void adicionarAtleta(String nome, int cc, String endereco, Data dataNascimento, int telefone, String email) {
-        Atleta a = new Atleta(nome,cc,endereco,dataNascimento,telefone,email);
+        Atleta a = new Atleta(nome, cc, endereco, dataNascimento, telefone, email);
         atletas.add(a);
     }
-    
-    public void adicionarModalidade(String nome, Data anoAtivacao) {
-        Modalidade m = new Modalidade(nome,anoAtivacao);
+
+    public void adicionarModalidade(String nome, int anoAtivacao) {
+        Modalidade m = new Modalidade(nome, anoAtivacao);
         modalidades.add(m);
     }
-    
-    public void adicionarEquipa(String escalao, Data anoCivil, int num) {
-        Equipa e = new Equipa(escalao,modalidades.get(num),anoCivil);
+
+    public void adicionarEquipa(String escalao, int anoCivil, int num) {
+        Equipa e = new Equipa(escalao, modalidades.get(num), anoCivil);
         equipas.add(e);
     }
-    
+
     public void adicionarJogadorEquipa(int numEquipa, int numAtleta, int num_camisola, String posicaoJogador) {
-        equipas.get(numEquipa).setJogador(atletas.get(numAtleta),num_camisola,posicaoJogador);
+        equipas.get(numEquipa).setJogador(atletas.get(numAtleta), num_camisola, posicaoJogador);
     }
-    
-    public void adicionarPremioIndividual(int numEquipa, int numCamisola, String premio, Data anoCivil) {
-        equipas.get(numEquipa).getJogador(equipas.get(numEquipa).findJogadorCamisola(numCamisola)).addPremio(premio,anoCivil);
+
+    public void adicionarPremioIndividual(int numEquipa, int numCamisola, String premio, int anoCivil) {
+        equipas.get(numEquipa).getJogador(equipas.get(numEquipa).findJogadorCamisola(numCamisola)).addPremio(premio, anoCivil);
     }
-    
+
     public void eliminarJogadorEquipa(int numEquipa, int num_camisola) {
         equipas.get(numEquipa).delJogador(equipas.get(numEquipa).findJogadorCamisola(num_camisola));
     }
@@ -136,16 +149,14 @@ public class Clube {
         for (int i = 0; i < equipas.size(); i++) {
             if (equipas.get(i).getModalidade().equals(modalidades.get(numModalidade))) {
                 for (int j = 0; j < equipas.get(i).getArrJogador().size(); j++) {
-                    for (int k = 0; k < equipas.get(i).getArrJogador().get(j).getArrPremio().size(); k++) {
-                        cont++;
-                    }
+                    cont = equipas.get(i).getArrJogador().get(j).getArrPremio().size();
                 }
             }
         }
         return cont;
     }
-    
-    public int  calcularTotalInscricoesAtleta(int numAtleta) {
+
+    public int calcularTotalInscricoesAtleta(int numAtleta) {
         int cont = 0;
         for (int i = 0; i < equipas.size(); i++) {
             for (int j = 0; j < equipas.get(i).getArrJogador().size(); j++) {
@@ -155,5 +166,9 @@ public class Clube {
             }
         }
         return cont;
+    }
+    
+    public ArrayList<Jogador> obterJogadoresEquipa(int num) {
+        return equipas.get(num).getArrJogador();
     }
 }

@@ -71,7 +71,7 @@ public class Jogador {
         return ("Número da camisola: " + numCamisola + "\nPosição: " + posJogador + "\nDados pessoais: " + dadosPessoais);
     }
     
-    public void addPremio(String nomePremio, Data dataAtribuicao) {
+    public void addPremio(String nomePremio, int dataAtribuicao) {
         Premio p = new Premio(nomePremio, dataAtribuicao);
         premios.add(p);
     }

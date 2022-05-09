@@ -12,17 +12,17 @@ import my_company.utilitarios.Data;
  */
 public class Modalidade {
     private String nome;
-    private Data dataCriacao;
+    private int dataCriacao;
 
     private static final String NOME_POR_OMISSAO = "";
-    private static final Data DATA_POR_OMISSAO = new Data();
+    private static final int DATA_POR_OMISSAO = 2000;
 
     public Modalidade() {
         nome = NOME_POR_OMISSAO;
         dataCriacao = DATA_POR_OMISSAO;
     }
 
-    public Modalidade(String nome, Data dataCriacao) {
+    public Modalidade(String nome, int dataCriacao) {
         this.nome = nome;
         this.dataCriacao = dataCriacao;
     }
@@ -40,21 +40,15 @@ public class Modalidade {
         this.nome = nome;
     }
 
-    public Data getDataCriacao() {
+    public int getDataCriacao() {
         return dataCriacao;
     }
 
-    public void setDataCriacao(Data dataCriacao) {
+    public void setDataCriacao(int dataCriacao) {
         this.dataCriacao = dataCriacao;
     }
 
     public String toString() {
         return ("Nome:  " + nome + "\nDataCriação: " + dataCriacao);
-    }
-
-    public void adicionarModalidade(String nome, int anoAtivacao) {
-        this.nome = nome;
-        int ano = this.dataCriacao.getAno();
-        ano = anoAtivacao;
     }
 }
