@@ -114,7 +114,45 @@ public class Clube {
     }
 
     public String toString() {
-        return ("Denominação: " + denominacao + "\nNIF: " + NIF + "\nEndreço: " + endereco + "\nData de constituição: " + dataConstituicao + "\nNúmero telefónico: " + numeroTel + "\nEmail: " + email);
+        String inf_club = ("Denominação: " + denominacao + "\nNIF: " + NIF + "\nEndreço: " + endereco + "\nData de constituição: " + dataConstituicao + "\nNúmero telefónico: " + numeroTel + "\nEmail: " + email + "\n");
+        String inf_club_atletas;
+        String inf_club_modalidades;
+        String inf_club_equipas;
+        
+        if (!atletas.isEmpty()) {
+            inf_club_atletas = "";
+            System.out.println("");
+            for (int i = 0; i < atletas.size(); i++) {
+                inf_club_atletas += "\nAtleta nº: " + i + "\n";
+                inf_club_atletas += atletas.get(i).toString() + "\n";
+            }
+        }else{
+            inf_club_atletas = "Não existe Atletas\n";
+        }
+        
+        if (!modalidades.isEmpty()) {
+            inf_club_modalidades = "";
+            System.out.println("");
+            for (int i = 0; i < modalidades.size(); i++) {
+                inf_club_modalidades += "\nModalidade nº: " + i + "\n";
+                inf_club_modalidades += modalidades.get(i).toString() + "\n";
+            }
+        }else{
+            inf_club_modalidades = "Não existe Modalidades\n";
+        }
+        
+        if (!equipas.isEmpty()) {
+            inf_club_equipas = "";
+            System.out.println("");
+            for (int i = 0; i < equipas.size(); i++) {
+                inf_club_equipas += "\nEquipa nº: " + i + "\n";
+                inf_club_equipas += equipas.get(i).toString() + "\n";
+            }
+        }else{
+            inf_club_equipas = "Não existe Equipas";
+        }
+        
+        return inf_club + inf_club_atletas + inf_club_modalidades + inf_club_equipas;
     }
 
     public void adicionarAtleta(String nome, int cc, String endereco, Data dataNascimento, int telefone, String email) {

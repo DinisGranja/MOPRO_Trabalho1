@@ -68,7 +68,20 @@ public class Jogador {
     }
 
     public String toString() {
-        return ("Número da camisola: " + numCamisola + "\nPosição: " + posJogador + "\nDados pessoais: " + dadosPessoais);
+        String inf_jogador = "Número da camisola: " + numCamisola + "\nPosição: " + posJogador + "\nDados pessoais: " + dadosPessoais + "\n";
+        String inf_jogador_premios;
+        
+        if (!premios.isEmpty()) {
+            inf_jogador_premios = "";
+            for (int i = 0; i < premios.size(); i++) {
+                inf_jogador_premios += "\nPrémio nº: " + (i+1) + "\n";
+                inf_jogador_premios += premios.get(i).toString() + "\n";
+            }
+        }else{
+            inf_jogador_premios = "O Jogador não tem prémios!";
+        }
+        
+        return inf_jogador + inf_jogador_premios;
     }
     
     public void addPremio(String nomePremio, int dataAtribuicao) {

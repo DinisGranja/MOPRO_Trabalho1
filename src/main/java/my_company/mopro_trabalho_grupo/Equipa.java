@@ -91,6 +91,19 @@ public class Equipa {
     }
 
     public String toString() {
-        return ("Escalão: " + escalao + "\nModalidade: " + modalidade + "\nData de constituição: " + dataConstituicao);
+        String inf_equipa = "Escalão: " + escalao + "\nModalidade: " + modalidade + "\nData de constituição: " + dataConstituicao + "\n";
+        String inf_equipa_jogadores;
+        
+        if (!jogadores.isEmpty()) {
+            inf_equipa_jogadores = "";
+            for (int i = 0; i < jogadores.size(); i++) {
+                inf_equipa_jogadores += "\nJogador nº: " + i + "\n";
+                inf_equipa_jogadores += jogadores.get(i).toString() + "\n";
+            }
+        }else{
+            inf_equipa_jogadores = "A equipa não tem jogadores!";
+        }
+        
+        return inf_equipa + inf_equipa_jogadores;
     }
 }

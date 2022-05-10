@@ -18,7 +18,8 @@ public class MOPRO_Trabalho_Grupo {
         Scanner in = new Scanner(System.in);
         Clube c1 = new Clube("Clube X", "123456789", "Porto", new Data(2014, 5, 2), "931122334",
                 "clubex@gmail.com");
-        // Adicionar 10 atletas ao clube 
+        // Adicionar 10 atletas ao clube
+        
         c1.adicionarAtleta("Pedro Nunes", 1111111, "Porto", new Data(2000, 3, 1), 912343432, "pedronumes@gmail.com");
         c1.adicionarAtleta("Mário Alves", 2222222, "Maia", new Data(2000, 12, 5), 916667778, "marioalves@gmail.com");
         c1.adicionarAtleta("Miguel Oliveira", 3333333, "Gaia", new Data(1997, 2, 15), 916667778, "marioalves@gmail.com");
@@ -34,19 +35,17 @@ public class MOPRO_Trabalho_Grupo {
         // Adicionar 2 modalidades ao clube
         c1.adicionarModalidade("futebol", 1990);
         c1.adicionarModalidade("futsal", 1995);
-        // System.out.println("II - Listar toda a informação do clube"+c1.toString());
-
+        //System.out.println("II - Listar toda a informação do clube"+c1.toString());
+        
         // Adicionar 2 equipas e, para isso, fazer:
-        // Mostrar todas as modalidades do clube, solicitar uma e depois adicionar/criar uma
-//equipa (sem jogadores por agora)
+        // Mostrar todas as modalidades do clube, solicitar uma e depois adicionar/criar uma equipa (sem jogadores por agora)
         ArrayList<Modalidade> vec = c1.getModalidades();
         listarModalidades(vec);
         System.out.println("\nDigite a posição da modalidade na lista: ");
         int num = in.nextInt();
         c1.adicionarEquipa("sub21", 2020, num);
         // Outra equipa
-        // Mostrar todas as modalidades do clube, solicitar uma e depois adicionar/criar uma
-//equipa (sem jogadores por agora)
+        // Mostrar todas as modalidades do clube, solicitar uma e depois adicionar/criar uma equipa (sem jogadores por agora)
         vec = c1.getModalidades();
         listarModalidades(vec);
         System.out.println("\nDigite a posição da modalidade na lista: ");
@@ -54,8 +53,7 @@ public class MOPRO_Trabalho_Grupo {
         c1.adicionarEquipa("sub23", 2021, num);
         // System.out.println("III - Listar toda a informação do clube"+c1.toString());
 
-// Adicionar 2 jogadores a cada uma das equipas criadas anteriormente. Para isso, começar por
-// selecionar a equipa e só depois os atletas.
+// Adicionar 2 jogadores a cada uma das equipas criadas anteriormente. Para isso, começar por selecionar a equipa e só depois os atletas.
         ArrayList<Equipa> vec1 = c1.getEquipas();
         listarEquipas(vec1);
         System.out.println("\nDigite a posição da equipa na lista: ");
@@ -98,12 +96,14 @@ public class MOPRO_Trabalho_Grupo {
         c1.adicionarPremioIndividual(num, num1, "Melhor jogador em campo", 2021);
         System.out.println("V - Listar toda a informação do clube" + c1.toString());
         //......
+        
     }
 
     public static void listarModalidades(ArrayList<Modalidade> vec) {
         System.out.println("\n #### Modalidades ####");
         for (int i = 0; i < vec.size(); i++) {
             System.out.println(i + " - " + vec.get(i).toString());
+            System.out.println("");
         }
     }
 
@@ -111,6 +111,7 @@ public class MOPRO_Trabalho_Grupo {
         System.out.println("\n #### Equipas ####");
         for (int i = 0; i < vec.size(); i++) {
             System.out.println(i + " - " + vec.get(i).toString());
+            System.out.println("");
         }
     }
 
@@ -118,6 +119,7 @@ public class MOPRO_Trabalho_Grupo {
         System.out.println("\n #### Atletas ####");
         for (int i = 0; i < vec.size(); i++) {
             System.out.println(i + " - " + vec.get(i).toString());
+            System.out.println("");
         }
     }
 
@@ -125,6 +127,7 @@ public class MOPRO_Trabalho_Grupo {
         System.out.println("\n #### Jogadores ####");
         for (int i = 0; i < vec.size(); i++) {
             System.out.println(i + " - " + vec.get(i).toString());
+            System.out.println("");
         }
     }
 
