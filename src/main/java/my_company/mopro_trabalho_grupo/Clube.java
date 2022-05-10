@@ -171,7 +171,17 @@ public class Clube {
     }
 
     public void adicionarJogadorEquipa(int numEquipa, int numAtleta, int num_camisola, String posicaoJogador) {
-        equipas.get(numEquipa).setJogador(atletas.get(numAtleta), num_camisola, posicaoJogador);
+        boolean flag = true;
+        // Ver. se exi. atleta na eq.
+        for (int i = 0; i < equipas.get(numEquipa).getArrJogador().size(); i++) {
+            if (equipas.get(numEquipa).getArrJogador().get(i).getDadosPessoais().equals(atletas.get(numAtleta))) {
+                flag = false;
+            }
+        }
+        
+        if (flag) {
+            equipas.get(numEquipa).setJogador(atletas.get(numAtleta), num_camisola, posicaoJogador);
+        }
     }
 
     public void adicionarPremioIndividual(int numEquipa, int numCamisola, String premio, int anoCivil) {
@@ -187,7 +197,7 @@ public class Clube {
         for (int i = 0; i < equipas.size(); i++) {
             if (equipas.get(i).getModalidade().equals(modalidades.get(numModalidade))) {
                 for (int j = 0; j < equipas.get(i).getArrJogador().size(); j++) {
-                    cont = equipas.get(i).getArrJogador().get(j).getArrPremio().size();
+                    cont += equipas.get(i).getArrJogador().get(j).getArrPremio().size();
                 }
             }
         }
@@ -198,7 +208,7 @@ public class Clube {
         int cont = 0;
         for (int i = 0; i < equipas.size(); i++) {
             for (int j = 0; j < equipas.get(i).getArrJogador().size(); j++) {
-                if (equipas.get(i).getArrJogador().get(j).equals(atletas.get(numAtleta))) {
+                if (equipas.get(i).getArrJogador().get(j).getDadosPessoais().equals(atletas.get(numAtleta))) {
                     cont++;
                 }
             }

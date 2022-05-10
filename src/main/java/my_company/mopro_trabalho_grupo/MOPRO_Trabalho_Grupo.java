@@ -94,8 +94,28 @@ public class MOPRO_Trabalho_Grupo {
         System.out.println("\nDigite o número da camisola do jogador: ");
         num1 = in.nextInt();
         c1.adicionarPremioIndividual(num, num1, "Melhor jogador em campo", 2021);
-        System.out.println("V - Listar toda a informação do clube" + c1.toString());
-        //......
+        
+        listarEquipas(vec1);
+        System.out.println("\nDigite a posição da equipa na lista: ");
+        num = in.nextInt();
+        ArrayList<Jogador> vec4 = c1.obterJogadoresEquipa(num);
+        listarJogadoresEquipa(vec4);
+        System.out.println("\nDigite o número da camisola do jogador: ");
+        num1 = in.nextInt();
+        c1.adicionarPremioIndividual(num, num1, "Melhor jogador em campo", 2021);
+        // System.out.println("V - Listar toda a informação do clube" + c1.toString());
+        
+        //Calcular e mostrar a quantidade total de prémios individuais dos jogadores que praticam uma dada modalidade
+        listarModalidades(vec);
+        System.out.println("\nDigite a posição da modalidade na lista: ");
+        num = in.nextInt();
+        System.out.println(c1.calcularTotalPremiosIndividuais(num));
+        
+        //Calcular e mostrar a quantidade de vezes que um dado atleta foi inscrito em equipas, independentemente da modalidade:
+        listarAtletas(vec2);
+        System.out.println("\nDigite a posição do atleta na lista: ");
+        num = in.nextInt();
+        System.out.println(c1.calcularTotalInscricoesAtleta(num));
         
     }
 
