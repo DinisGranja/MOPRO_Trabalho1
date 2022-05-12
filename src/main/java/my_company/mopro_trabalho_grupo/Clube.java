@@ -171,15 +171,33 @@ public class Clube {
     }
 
     public void adicionarJogadorEquipa(int numEquipa, int numAtleta, int num_camisola, String posicaoJogador) {
-        boolean flag = true;
+        boolean flag = false;
+        ArrayList<Modalidade> mod_usadas = new ArrayList<>();
+        
+        for (int i = 0; i < equipas.size(); i++) {
+            for (int j = 0; j < equipas.get(i).getArrJogador().size(); j++) {
+                if (atletas.get(numAtleta).equals(equipas.get(i).getArrJogador().get(j).getDadosPessoais())) {
+                    mod_usadas.add(equipas.get(i).getModalidade());
+                }
+            }
+        }
+        
+        for (int i = 0; i < mod_usadas.size(); i++) {
+            if (mod_usadas.get(i) == equipas.get(numEquipa).getModalidade()) {
+                flag=true;
+                System.out.println("Atleta inscrito nesta modalidade");
+                break;
+            }
+        }
         // Ver. se exi. atleta na eq.
+        /*
         for (int i = 0; i < equipas.get(numEquipa).getArrJogador().size(); i++) {
             if (equipas.get(numEquipa).getArrJogador().get(i).getDadosPessoais().equals(atletas.get(numAtleta))) {
                 flag = false;
             }
-        }
+        }*/
         
-        if (flag) {
+        if (!flag) {
             equipas.get(numEquipa).setJogador(atletas.get(numAtleta), num_camisola, posicaoJogador);
         }
     }
