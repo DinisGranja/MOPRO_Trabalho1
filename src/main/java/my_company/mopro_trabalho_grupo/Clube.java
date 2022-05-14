@@ -189,13 +189,6 @@ public class Clube {
                 break;
             }
         }
-        // Ver. se exi. atleta na eq.
-        /*
-        for (int i = 0; i < equipas.get(numEquipa).getArrJogador().size(); i++) {
-            if (equipas.get(numEquipa).getArrJogador().get(i).getDadosPessoais().equals(atletas.get(numAtleta))) {
-                flag = false;
-            }
-        }*/
         
         if (!flag) {
             equipas.get(numEquipa).setJogador(atletas.get(numAtleta), num_camisola, posicaoJogador);
